@@ -113,37 +113,37 @@ const categories = [
     id: 1,
     title: "العناية بالجسم",
     count: 55,
-    image: "../../src/images/categories/body.png",
+    image: "./images/categories/body.png",
   },
   {
     id: 2,
     title: "العناية بالشعر",
     count: 55,
-    image: "../../src/images/categories/haire.png",
+    image: "./images/categories/haire.png",
   },
   {
     id: 3,
     title: "العناية بالبشرة",
     count: 55,
-    image: "../../src/images/categories/face.png",
+    image: "./images/categories/face.png",
   },
   {
     id: 4,
     title: "اليدين والقدمين",
     count: 55,
-    image: "../../src/images/categories/hands.png",
+    image: "./images/categories/hands.png",
   },
   {
     id: 5,
     title: "المكياج",
     count: 55,
-    image: "../../src/images/categories/mkyage.png",
+    image: "./images/categories/mkyage.png",
   },
   {
     id: 6,
     title: "العطور",
     count: 55,
-    image: "../../src/images/categories/perfoum.png",
+    image: "./images/categories/perfoum.png",
   },
 ];
 
@@ -173,33 +173,33 @@ Array(6)
                 >
                   <div class="me-auto px-1 text-white bg-[#BD1C1C]">10%-</div>
                   <img
-                    src="../../src/images/categories/serium.png"
+                    src="./images/categories/serium.png"
                     alt="serium Image"
                     class="w-full object-contain"
                   />
                   <div class="flex mt-2 gap-1">
                     <img
-                      src="../../src/images/categories/Vector.png"
+                      src="./images/categories/Vector.png"
                       alt="stars Image"
                       class="object-contain w-4 h-4"
                     />
                     <img
-                      src="../../src/images/categories/Vector.png"
+                      src="./images/categories/Vector.png"
                       alt="stars Image"
                       class="object-contain w-4 h-4"
                     />
                     <img
-                      src="../../src/images/categories/Vector.png"
+                      src="./images/categories/Vector.png"
                       alt="stars Image"
                       class="object-contain w-4 h-4"
                     />
                     <img
-                      src="../../src/images/categories/Vector.png"
+                      src="./images/categories/Vector.png"
                       alt="stars Image"
                       class="object-contain w-4 h-4"
                     />
                     <img
-                      src="../../src/images/categories/Vector.png"
+                      src="./images/categories/Vector.png"
                       alt="stars Image"
                       class="object-contain w-4 h-4"
                     />
