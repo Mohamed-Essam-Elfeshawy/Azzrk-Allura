@@ -58,7 +58,7 @@ allSection.forEach((sec, index) => {
               <div class="flex justify-between px-6 py-3 items-baseline">
                 ${sec.title}
                 ${sec.arrow
-      ? `<img src="../../src/images/header/down-arrow 1.svg" class="size-4" alt="arrow" />`
+      ? `<img src="./images/header/down-arrow 1.svg" class="size-4" alt="arrow" />`
       : ""
     }
               </div>
@@ -228,7 +228,7 @@ Array(6)
                     class="bg-[#597445] p-2 mt-4 text-white w-full text-center flex justify-center"
                   >
                     <img
-                      src="../src/images/categories/cart.png"
+                      src="./images/categories/cart.png"
                       class="object-contain size-6"
                       alt="cart"
                     />
