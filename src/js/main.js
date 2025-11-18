@@ -2,14 +2,91 @@ const displayCard = document.querySelector(".allCard .displayCard");
 const displayCardSeller = document.querySelector(
   ".allCardSeller .displayCardSeller"
 );
-const leftDiv = document.querySelector(".grid > div:nth-child(1) img");
-const rightDiv = document.querySelector(".grid > div:nth-child(3) img");
+const leftDiv = document.querySelector(".firstImg");
+const rightDiv = document.querySelector(".thiredImg");
+const btnMenu = document.querySelector("#btn-menu");
+const showMenu = document.querySelector("#show-menu");
+const closeMenu = document.querySelector("#close-menu");
+const navLinks = document.querySelector(".all-section-title");
+const productsCard = document.querySelector(".products-card");
 let content = "";
 let seller = "";
 
-// console.log(displayCardSeller);
+/* ------------------------------------menu header--------------------------------------- */
+const allSection = [
+  {
+    title: "جميع الأقسام",
+    arrow: true,
+    activ: true,
+  },
+  {
+    title: "المكياج",
+    arrow: true,
+    activ: false,
+  },
+  {
+    title: "العناية",
+    arrow: true,
+    activ: false,
+  },
+  {
+    title: "العطور",
+    arrow: true,
+    activ: false,
+  },
+  {
+    title: "تخفيضات",
+    arrow: true,
+    activ: false,
+  },
+  {
+    title: "الماركات",
+    arrow: true,
+    activ: false,
+  },
+];
 
-/* slider header */
+let containerAllSection = "";
+
+allSection.forEach((sec, index) => {
+  containerAllSection += `
+          <li>
+            <a
+              class="w-[200px] h-[22px] font-harmattan font-semibold text-[18px] leading-[22px] tracking-normal text-right"
+              href="#"
+            >
+              <div class="flex justify-between px-6 py-3 items-baseline">
+                ${sec.title}
+                ${sec.arrow
+      ? `<img src="../../src/images/header/down-arrow 1.svg" class="size-4" alt="arrow" />`
+      : ""
+    }
+              </div>
+            </a>
+          </li>
+          <li>
+            <hr />
+          </li>
+          `;
+});
+
+navLinks.innerHTML = containerAllSection;
+
+
+
+btnMenu.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  showMenu.classList.add("menu-open");
+  document.body.style.overflow = "hidden";
+});
+
+closeMenu.addEventListener(`click`, function (e) {
+  e.preventDefault();
+  showMenu.classList.remove("menu-open");
+  document.body.style.overflow = "";
+});
+
+/* ----------------------------------- slider header--------------------------------------- */
 
 const images = [
   "./images/header/banner1 (1).webp",
@@ -30,7 +107,7 @@ setInterval(() => {
   updateSlider();
 }, 3000);
 
-
+/* ---------------------------------------categories------------------------------------------- */
 const categories = [
   {
     id: 1,
@@ -79,13 +156,9 @@ categories.forEach((item) => {
                   <p class="text-center  font-medium text-[20.67px] leading-[1.2] mt-2 whitespace-nowrap">
                      ${item.title}
                   </p>
-
-
-
                   <p class="text-[12px] md:text-[16px] mb-1 text-[#202020] font-normal text-center opacity-60">
                     ${item.count}
                   </p>
-
                 </div>
 `;
 });
@@ -167,4 +240,3 @@ Array(6)
   });
 
 displayCardSeller.innerHTML = seller;
-

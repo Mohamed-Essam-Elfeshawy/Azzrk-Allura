@@ -21,14 +21,19 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/output.css" />
+
   <style>
     .moveslide {
       animation: scroll 15s linear infinite;
       width: max-content;
     }
+
     .allslidemove:hover .moveslide {
       animation-play-state: paused;
     }
+
     @keyframes scroll {
       0% {
         transform: translateX(100%);
@@ -38,16 +43,216 @@
         transform: translateX(-40%);
       }
     }
-  </style>
 
-  <link rel="stylesheet" href="css/output.css" />
+    #show-menu {
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in-out;
+      visibility: hidden;
+    }
+
+    #show-menu.menu-open {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    #show-menu ul li {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+
+    #show-menu.menu-open ul li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #show-menu.menu-open ul li:nth-child(1) {
+      transition-delay: 0.15s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(2) {
+      transition-delay: 0.20s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(3) {
+      transition-delay: 0.25s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(4) {
+      transition-delay: 0.30s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(5) {
+      transition-delay: 0.35s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(6) {
+      transition-delay: 0.40s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(7) {
+      transition-delay: 0.45s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(8) {
+      transition-delay: 0.50s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(9) {
+      transition-delay: 0.55s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(10) {
+      transition-delay: 0.60s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(11) {
+      transition-delay: 0.65s;
+    }
+
+    #show-menu.menu-open ul li:nth-child(12) {
+      transition-delay: 0.70s;
+    }
+  </style>
 </head>
 
 <body class="text-right overflow-x-hidden font-arabic">
   <header>
-    <div class="grid md:grid-cols-3 grid-cols-1">
+    <!-- search -->
+    <section>
+      <div class="container my-6">
+        <div class="thereDiv grid grid-cols-12 items-center gap-2">
+          <div class=" col-span-2 flex justify-start">
+            <img class="" src="../src/images/header/Group 5.png" alt="Allura img" />
+          </div>
+          <div class=" col-span-8 flex justify-center">
+            <input class="w-full  border border-gray-300 cursor-pointer rounded-sm px-4 py-3 outline-none" type="search"
+              placeholder="ما الذي تبحث عنه؟" />
+          </div>
+          <div class=" col-span-2   flex justify-end">
+            <img class="w-24 cursor-pointer  md:w-14" src="../src/images/header/cart.png" alt="cart icon" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- menu -->
+    <hr>
+    <section>
+      <div class="container flex justify-between items-center flex-row h-[80px]">
+
+        <!-- right -->
+        <div class="flex items-center justify-between flex-row">
+          <nav class="flex items-center flex-row">
+            <div id="btn-menu" class=" ml-[22px] cursor-pointer">
+              <img loading="lazy" class="w-6" src="../src/images/header/menu.svg" alt="menuIcon" />
+            </div>
+            <ul class="hidden xl:flex items-center flex-row ">
+              <li class="flex flex-row items-center gap-1">
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  جميع الأقسام </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+
+              <li>
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  المكياج </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  العناية </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  العطور </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  تخفيضات </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p class=" font-normal text-base leading-none tracking-normal text-[#202020] align-middle">
+                  الماركات </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- left -->
+        <div class="flex items-center flex-row ">
+          <div class="flex flex-row items-center justify-end max-w-[887.93px] h-[27.17px] pt-[3px] pb-[2px]">
+            <ul class="flex flex-row items-center gap-1 2xl:gap-4">
+              <li class="flex flex-row items-center gap-1">
+                <div class="size-4">
+                  <img loading="lazy" class="size-full" src="../src/images/header/lang.svg" alt="language" />
+                </div>
+                <p
+                  class=" font-normal text-[10px] md:text-base   leading-none tracking-normal text-[#202020] align-middle">
+                  العربية - رس
+                </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p
+                  class=" font-normal text-[10px] md:text-base  leading-none tracking-normal text-[#202020] align-middle">
+                  سياسة الإستبدال أو الاسترجاع
+                </p>
+              </li>
+              <li class="flex items-center ">
+                <span class="border border-[#CDCDCD]  inline-block rotate-[-90deg] w-[20px]">
+                </span>
+              </li>
+              <li>
+                <p
+                  class=" font-normal text-[10px] md:text-base  leading-none tracking-normal text-[#202020] align-middle">
+                  تواصل معنا
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="show-menu"
+        class="bg-secondColor z-[999] w-screen md:w-[45%] xl:w-[30%]  absolute inset-y-0 right-0 py-10">
+        <div class="w-[119px] relative h-[32px] mb-10 mx-auto">
+          <img loading="lazy" src="../src/images/header/Group 5.png" class="w-full" alt="Allura" />
+        </div>
+        <div id="close-menu" class="absolute cursor-pointer top-9 text-2xl text-white right-[30px]">
+          x
+        </div>
+        <ul class="flex flex-col all-section-title gap-4  2xl:gap-5 mx-8 text-white"></ul>
+      </div>
+    </section>
+    <!-- Main Banner -->
+    <section class="grid md:grid-cols-3 grid-cols-1">
       <div class="md:h-[700px] h-[335px] px-[24px] md:px-0 bg-thirdColor">
-        <img src="./images/header/banner1 (1).webp" alt="banner1" class="w-full h-full" />
+        <img src="./images/header/banner1 (1).webp" alt="banner1" class="firstImg w-full h-full" />
       </div>
       <div class="md:h-[700px] h-[245px] bg-thirdColor flex flex-col md:gap-12 gap-5 items-center px-16">
         <div class="h-[50px] mt-[44px] hidden md:block">
@@ -70,9 +275,9 @@
         </div>
       </div>
       <div class="h-[700px] hidden md:block">
-        <img src="./images/header/banner1 (2).webp" alt="banner1" class="w-full h-full" />
+        <img src="./images/header/banner1 (2).webp" alt="banner1" class="thiredImg w-full h-full" />
       </div>
-    </div>
+    </section>
   </header>
 
   <main>
@@ -169,14 +374,11 @@
           <div class="allCardSeller">
             <div
               class="displayCardSeller grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-12 2xl:gap-6 mt-16">
-
-
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer></footer>
