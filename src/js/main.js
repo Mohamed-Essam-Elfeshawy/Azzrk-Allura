@@ -86,6 +86,28 @@ closeMenu.addEventListener(`click`, function (e) {
   document.body.style.overflow = "";
 });
 
+// Close menu when clicking outside the panel
+showMenu.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+
+document.addEventListener("click", function (e) {
+  const clickedOnToggle = e.target.closest("#btn-menu");
+  const clickedInsideMenu = showMenu.contains(e.target);
+  if (showMenu.classList.contains("menu-open") && !clickedInsideMenu && !clickedOnToggle) {
+    showMenu.classList.remove("menu-open");
+    document.body.style.overflow = "";
+  }
+});
+
+// Close on Escape key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && showMenu.classList.contains("menu-open")) {
+    showMenu.classList.remove("menu-open");
+    document.body.style.overflow = "";
+  }
+});
+
 /* ----------------------------------- slider header--------------------------------------- */
 
 const images = [
@@ -94,21 +116,53 @@ const images = [
 ];
 
 let current = 0;
+const dots = document.querySelectorAll(".hero-dots .dot");
+let sliderTimer;
 
 function updateSlider() {
-  leftDiv.src = images[current];
-  rightDiv.src = images[1 - current];
+  const isEven = current % 2 === 0;
+  leftDiv.src = images[isEven ? 0 : 1];
+  rightDiv.src = images[isEven ? 1 : 0];
+  updateDots();
+}
+
+function updateDots() {
+  const activeIndex = current % dots.length;
+  dots.forEach((dot, i) => {
+    if (i === activeIndex) {
+      dot.classList.remove("opacity-30");
+    } else {
+      if (!dot.classList.contains("opacity-30")) dot.classList.add("opacity-30");
+    }
+  });
 }
 
 updateSlider();
 
-setInterval(() => {
-  current = 1 - current;
-  updateSlider();
-}, 3000);
+function startAutoSlide() {
+  sliderTimer = setInterval(() => {
+    current = (current + 1) % dots.length;
+    updateSlider();
+  }, 3000);
+}
+
+function resetAutoSlide() {
+  clearInterval(sliderTimer);
+  startAutoSlide();
+}
+
+startAutoSlide();
+
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    current = i;
+    updateSlider();
+    resetAutoSlide();
+  });
+});
 
 /* ---------------------------------------categories------------------------------------------- */
-const categories = [
+const active = [
   {
     id: 1,
     title: "العناية بالجسم",
@@ -148,7 +202,7 @@ const categories = [
 ];
 
 /* categories */
-categories.forEach((item) => {
+active.forEach((item) => {
   content += `            <div
                   class="group bg-thirdColor pb-3 px-4  md:hover:[scale:0.8] transition-all [transition-duration:500ms] shadow rounded flex flex-col items-center">
                   <img src=${item.image}  alt="Card Image"
@@ -209,7 +263,7 @@ Array(6)
                     سيروم عناية بالبشرة
                   </p>
 
-                  <div class="flex flex-row">
+                  <div class="flex flex-row gap-2">
                     <p
                       class="text-center text-[14px] font-[500] text-mainColor"
                     >
@@ -240,3 +294,230 @@ Array(6)
   });
 
 displayCardSeller.innerHTML = seller;
+
+/* ---------------------------------------slider ------------------------------------------- */
+
+const taps = document.querySelectorAll(".operations__tab");
+const tabsContainar = document.querySelector(".operations__tab-container");
+const tapContant = document.querySelectorAll(".operations__content");
+
+tabsContainar.addEventListener("click", function (e) {
+  e.preventDefault();
+  const clicked = e.target.closest(".operations__tab");
+  if (!clicked) return;
+  //Active tab
+  taps.forEach((t) => t.classList.remove("operations__tab--active"));
+  clicked.classList.add("operations__tab--active");
+  //Active Content
+  tapContant.forEach((tc) =>
+    tc.classList.remove("operations__content--active")
+  );
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+// ---------------------------
+// 1) DATA OBJECT
+// ---------------------------
+const categories = {
+  1: [
+    {
+      img: "./images/slider/productOne/photo.png",
+      title: "ماسكرا الورماسكرا الورا مضادة للمياه",
+      price: 140,
+      old: 110,
+    },
+    {
+      img: "./images/slider/productOne/maskara2.png",
+      title: "ماسكرا مايبيلين سكاي هاي",
+      price: 130,
+      old: 120,
+    },
+    {
+      img: "./images/slider/productOne/maskara3.png",
+      title: "ماسكرا مايبيلين سكاي هاي",
+      price: 150,
+      old: 135,
+    },
+  ],
+
+  2: [
+    {
+      img: "./images/slider/productTwo/photo2 (3).png",
+      title: "كريم اساس الورا عالي التغطية",
+      price: 140,
+      old: 110,
+    },
+    {
+      img: "./images/slider/productTwo/cremeasas2.png",
+      title: "كريم اساس شارلوت تيلبري",
+      price: 130,
+      old: 120,
+    },
+    {
+      img: "./images/slider/productTwo/ceremasam3.png",
+      title: "كريم اساس كاترس",
+      price: 150,
+      old: 135,
+    },
+  ],
+
+  3: [
+    {
+      img: "./images/slider/productThere/photo2 (2).png",
+      title: " حمرة شفاه ديور ",
+      price: 140,
+      old: 110,
+    },
+    {
+      img: "./images/slider/productThere/dior-2.png",
+      title: " حمرة شفاة الورا",
+      price: 130,
+      old: 120,
+    },
+    {
+      img: "./images/slider/productThere/dior-3.png",
+      title: "حمرة شفاة ماك  ",
+      price: 150,
+      old: 135,
+    },
+  ],
+
+  4: [
+    {
+      img: "./images/slider/productFour/phto4.png",
+      title: " حمرة شفاه ديور ",
+      price: 140,
+      old: 110,
+    },
+    {
+      img: "./images/slider/productFour/mekiage-2.jpg",
+      title: " حمرة خدود شي جلام ",
+      price: 130,
+      old: 120,
+    },
+    {
+      img: "./images/slider/productFour/mekiage-3.png",
+      title: " حمرة خدود نوت ",
+      price: 150,
+      old: 135,
+    },
+  ],
+
+  5: [
+    {
+      img: "./images/slider/productFive/photo2 (1).png",
+      title: "ايشاود الورا  ",
+      price: 140,
+      old: 110,
+    },
+    {
+      img: "./images/slider/productFive/shadow-2.png",
+      title: " ايشادو نارس ",
+      price: 130,
+      old: 120,
+    },
+    {
+      img: "./images/slider/productFive/shaow-3.png",
+      title: "  ايشادو رفلوشن",
+      price: 150,
+      old: 135,
+    },
+  ],
+};
+
+// ---------------------------
+// 2) CREATE SLIDER FUNCTION
+// ---------------------------
+function createSlider(products, container) {
+  container.innerHTML = `
+    <div class="swiper-wrapper">
+    
+      ${products
+      .map(
+        (p) => `
+        <div class="swiper-slide">
+       
+          <div class="flex flex-col gap-4">
+          
+          <div class="md:h-[460px] h-[250px] md:px-20 xl:px-22 relative ">
+                <img src="${p.img}" class="w-full h-full object-cover rounded-lg" />
+                <div class="absolute top-40 md:right-28 right-10">
+                  <div class=" w-10 h-10 rounded-full border-2 border-black "></div>
+                </div>
+                <div class="absolute top-[180px] -right-7">
+                  <div class=" md:w-[160px] w-[80px] h-[2px]  bg-black "></div>
+                </div>
+                <div class="absolute top-36 md:right-0 -right-2">
+                 <p class="md:text-xl text-[12px] font-light text-black" >مضاده للمياه</p>
+                </div>
+                 <div class="absolute bottom-40 md:left-24 left-14">
+                  <div class=" w-10 h-10 rounded-full border-2 border-black "></div>
+                </div>
+                <div class="absolute bottom-[180px] md:left-6 left-0">
+                  <div class=" md:w-[100px] w-[80px] h-[2px]  bg-black "></div>
+                </div>
+                <div class="absolute bottom-48 md:left-3 left-2">
+                 <p class="md:text-xl text-[12px] font-light text-black" > سواد فحمي</p>
+                </div>
+              </div>
+            <div class="text-center">
+              <p class="text-lg text-[#597445]">المكياج</p>
+              <p class="text-xl text-secondColor">${p.title}</p>
+              <p class="text-red-500 text-xl">${p.price} ر.س 
+                <span class="line-through text-gray-500">${p.old} ر.س</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      `
+      )
+      .join("")}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>  `;
+
+  new Swiper(container, {
+    slidesPerView: 1,
+    spaceBetween: 40,
+    navigation: {
+      nextEl: container.querySelector(".swiper-button-next"),
+      prevEl: container.querySelector(".swiper-button-prev"),
+    },
+  });
+}
+
+
+// 3) Tab Switch Logic
+
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const contents = document.querySelectorAll(".operations__content");
+
+// Load first slider by default
+createSlider(
+  categories[1],
+  document.querySelector(".operations__content--1 .slider-container")
+);
+
+tabsContainer.addEventListener("click", function (e) {
+  const clicked = e.target.closest(".operations__tab");
+  if (!clicked) return;
+
+  // Activate Tab
+  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
+  clicked.classList.add("operations__tab--active");
+
+  // Activate Content
+  contents.forEach((c) => c.classList.remove("operations__content--active"));
+  const activeContent = document.querySelector(
+    `.operations__content--${clicked.dataset.tab}`
+  );
+  activeContent.classList.add("operations__content--active");
+
+  // Create Slider
+  const container = activeContent.querySelector(".slider-container");
+  createSlider(categories[clicked.dataset.tab], container);
+});
