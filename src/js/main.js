@@ -499,7 +499,7 @@ const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const contents = document.querySelectorAll(".operations__content");
 
-// Load first slider by default
+// Load first slider by default 
 createSlider(
   categories[1],
   document.querySelector(".operations__content--1 .slider-container")
