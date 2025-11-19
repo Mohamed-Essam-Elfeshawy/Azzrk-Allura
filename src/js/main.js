@@ -72,8 +72,6 @@ allSection.forEach((sec, index) => {
 
 navLinks.innerHTML = containerAllSection;
 
-
-
 btnMenu.addEventListener(`click`, function (e) {
   e.preventDefault();
   showMenu.classList.add("menu-open");
@@ -94,7 +92,11 @@ showMenu.addEventListener("click", function (e) {
 document.addEventListener("click", function (e) {
   const clickedOnToggle = e.target.closest("#btn-menu");
   const clickedInsideMenu = showMenu.contains(e.target);
-  if (showMenu.classList.contains("menu-open") && !clickedInsideMenu && !clickedOnToggle) {
+  if (
+    showMenu.classList.contains("menu-open") &&
+    !clickedInsideMenu &&
+    !clickedOnToggle
+  ) {
     showMenu.classList.remove("menu-open");
     document.body.style.overflow = "";
   }
@@ -132,7 +134,8 @@ function updateDots() {
     if (i === activeIndex) {
       dot.classList.remove("opacity-30");
     } else {
-      if (!dot.classList.contains("opacity-30")) dot.classList.add("opacity-30");
+      if (!dot.classList.contains("opacity-30"))
+        dot.classList.add("opacity-30");
     }
   });
 }
@@ -279,13 +282,14 @@ Array(6)
                     </p>
                   </div>
                   <button
-                    class="bg-[#597445] p-2 mt-4 text-white w-full text-center flex justify-center"
+                    class="bg-[#597445] p-2 mt-4 text-white w-full text-center flex justify-center items-center"
                   >
-                    <img
-                      src="./images/categories/cart.png"
-                      class="object-contain size-6"
-                      alt="cart"
-                    />
+                  <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.16035 9.96924C3.40838 9.96924 2.79883 10.5788 2.79883 11.3308C2.79883 12.0827 3.40841 12.6923 4.16035 12.6923C4.91231 12.6923 5.52187 12.0827 5.52187 11.3308C5.5219 10.5788 4.91231 9.96924 4.16035 9.96924ZM4.16035 12.0872C3.7426 12.0872 3.40395 11.7485 3.40395 11.3308C3.40395 10.913 3.7426 10.5744 4.16035 10.5744C4.5781 10.5744 4.91674 10.913 4.91674 11.3308C4.91677 11.7485 4.5781 12.0872 4.16035 12.0872Z" fill="white"/>
+<path d="M9.90937 9.96924C9.15741 9.96924 8.54785 10.5788 8.54785 11.3308C8.54785 12.0827 9.15744 12.6923 9.90937 12.6923C10.6613 12.6923 11.2709 12.0827 11.2709 11.3308C11.2709 10.5788 10.6613 9.96924 9.90937 9.96924ZM9.90937 12.0872C9.49162 12.0872 9.15298 11.7485 9.15298 11.3308C9.15298 10.913 9.49162 10.5744 9.90937 10.5744C10.3271 10.5744 10.6658 10.913 10.6658 11.3308C10.6658 11.7485 10.3271 12.0872 9.90937 12.0872Z" fill="white"/>
+<path d="M12.9799 2.02719C12.9169 1.95836 12.8307 1.91528 12.7379 1.90616L2.88948 1.77L2.61718 0.937949C2.42534 0.381729 1.90448 0.00622558 1.31615 0H0.302563C0.135457 0 0 0.135457 0 0.302563C0 0.469669 0.135457 0.605126 0.302563 0.605126H1.31615C1.64512 0.612394 1.93479 0.82363 2.04231 1.13462L3.96358 6.92869L3.81231 7.27663C3.64359 7.71173 3.69426 8.20143 3.94847 8.59277C4.20024 8.97714 4.62381 9.21435 5.08308 9.22816H10.9679C11.135 9.22816 11.2705 9.0927 11.2705 8.9256C11.2705 8.75849 11.135 8.62304 10.9679 8.62304H5.08306C4.82369 8.61655 4.58495 8.48011 4.44767 8.25995C4.31192 8.04249 4.28404 7.77459 4.37204 7.53379L4.49307 7.26149L10.862 6.59584C11.5616 6.51879 12.1371 6.00997 12.2992 5.32507L13.0254 2.28432C13.0581 2.19676 13.0407 2.09828 12.9799 2.02719ZM11.7092 5.18895C11.611 5.62983 11.2366 5.95504 10.7864 5.99074L4.49307 6.64124L3.08615 2.37513L12.3597 2.51128L11.7092 5.18895Z" fill="white"/>
+</svg>
+
                     <p class="mr-2">أضف للسلة</p>
                   </button>
                 </div>
@@ -488,7 +492,6 @@ function createSlider(products, container) {
     },
   });
 }
-
 
 // 3) Tab Switch Logic
 
