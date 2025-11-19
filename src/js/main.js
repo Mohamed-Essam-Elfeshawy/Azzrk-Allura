@@ -444,24 +444,24 @@ function createSlider(products, container) {
        
           <div class="flex flex-col gap-4">
           
-          <div class="md:h-[460px] h-[250px] md:px-20 xl:px-22 relative ">
+          <div class="md:h-[460px] h-[250px] md:px-20 xl:px-22 relative  ">
                 <img src="${p.img}" class="w-full h-full object-cover rounded-lg" />
-                <div class="absolute top-40 md:right-28 right-10">
+                <div class="absolute top-48 md:right-28 right-10">
                   <div class=" w-10 h-10 rounded-full border-2 border-black "></div>
                 </div>
-                <div class="absolute top-[180px] -right-7">
+                <div class="absolute top-[210px] -right-7">
                   <div class=" md:w-[160px] w-[80px] h-[2px]  bg-black "></div>
                 </div>
-                <div class="absolute top-36 md:right-0 -right-2">
+                <div class="absolute top-48  md:top-44  md:right-0 ">
                  <p class="md:text-xl text-[12px] font-light text-black" >مضاده للمياه</p>
                 </div>
-                 <div class="absolute bottom-40 md:left-24 left-14">
+                 <div class="absolute bottom-28 md:left-24 left-14">
                   <div class=" w-10 h-10 rounded-full border-2 border-black "></div>
                 </div>
-                <div class="absolute bottom-[180px] md:left-6 left-0">
+                <div class="absolute bottom-[130px] md:left-6 left-0">
                   <div class=" md:w-[100px] w-[80px] h-[2px]  bg-black "></div>
                 </div>
-                <div class="absolute bottom-48 md:left-3 left-2">
+                <div class="absolute bottom-36 md:left-3 left-2">
                  <p class="md:text-xl text-[12px] font-light text-black" > سواد فحمي</p>
                 </div>
               </div>
